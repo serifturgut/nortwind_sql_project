@@ -28,12 +28,12 @@ ADD CONSTRAINT fk_orders_employees
 FOREIGN KEY (employee_id)
 REFERENCES employees (employee_id);
 
---1. Satis Analizi
--- Toplam siparis sayisi
+1.Sales Analysis
+1.1.Total number of orders
 
 SELECT COUNT(*) FROM orders
 
--- En cok satisi olan 5 ürün hangisi?
+1.2.Top 5 best selling products
 
 SELECT  p.product_name,
 		SUM(od.quantity) AS totalquantitysold
@@ -45,7 +45,7 @@ SELECT  p.product_name,
 	LIMIT 5
 
 
--- Yıllara ve aylara göre satis sayisi
+1.3.Total Number of Orders by Month
 
 SELECT  EXTRACT(YEAR FROM o.order_date) AS order_year,
 		EXTRACT(MONTH FROM o.order_date) AS order_month,
@@ -56,7 +56,7 @@ SELECT  EXTRACT(YEAR FROM o.order_date) AS order_year,
 	GROUP BY order_year, order_month
 	ORDER BY order_year, order_month
 				
--- yıllara göre toplam satis sayisi					
+1.4.Total sales by year					
 
   SELECT  EXTRACT(YEAR FROM o.order_date) AS order_year,
 		SUM (od.quantity) AS total_sales
@@ -66,7 +66,7 @@ SELECT  EXTRACT(YEAR FROM o.order_date) AS order_year,
 	GROUP BY order_year
 	ORDER BY order_year
 
---aylara göre toplam sipariş sayısı
+1.5.Total Number of orders by month
 
 SELECT  EXTRACT(MONTH FROM o.order_date) AS order_month,
 		SUM (od.quantity) AS total_sales
@@ -78,13 +78,13 @@ SELECT  EXTRACT(MONTH FROM o.order_date) AS order_month,
 
 
 
---2. Ürün analizi 
--- satilan toplam ürün sayisi
+2.Product Analysis  
+2.1. Total number of Product Sold
 
 SELECT  SUM(quantity) AS total_sales
 		FROM order_details
 
--- kategoriye göre satis sayisini bulup büyükten kücüge siralayin 
+2.2. Find the sales number by category and sort from largest to smallest
 
 SELECT  c.category_name,
 		SUM(od.quantity) AS totalquantitysold
@@ -98,7 +98,7 @@ SELECT  c.category_name,
 	LIMIT 5
 
 	
--- ay bazında kategoriye göre satış sayısı,
+2.3. Number of sales by category on a monthly basis
 
 WITH monthly_sales AS (
     SELECT 
@@ -126,7 +126,7 @@ WITH monthly_sales AS (
 	ORDER BY month
 
 
---gelire göre en iyi performans gösteren ürünler
+2.4. Best performing products by revenue
 
 SELECT  p.product_name,
 		SUM (od.quantity *od.unit_price * (1-od.discount)) AS total_revenue
@@ -139,12 +139,12 @@ SELECT  p.product_name,
 
 
 
---3. Müsteri analizi
--- kac müsteri var.
+3. Customer Analysis
+3.1. Customer Count
 
 SELECT COUNT (*) FROM customers
 
--- en cok müsteri hangi ülkeden
+3.2. Country with the most customers
 
 SELECT  country,
 		COUNT(customer_id) AS customer_count
@@ -152,7 +152,7 @@ SELECT  country,
 	GROUP BY country
 	ORDER BY 2 DESC
 
--- en cok müsteri hangi şehirden
+3.3. City with the most customers top 10
 
 SELECT  city,
 		COUNT(customer_id) AS customer_count
@@ -161,8 +161,8 @@ SELECT  city,
 	ORDER BY 2 DESC
 	LIMIT 10
 
---4. Kargolama Analizi
--- En sık kullanılan nakliye araçları ve verimlilikleri
+4. Shipping Analysis
+4.1.Most commonly used transport firms and their efficiency
 
 SELECT  s.company_name,
 		COUNT(o.order_id) AS total_order_shipped,
@@ -174,7 +174,7 @@ SELECT  s.company_name,
 	ORDER BY 2 DESC
 
 
--- Nakliyeci ve Karlılığa Göre Nakliye Maliyetleri(BU SORUYA TEKRAR BAK TOPLAM SHİPPİNG COST ÇOOK MANTIKLI GELMEDİ)
+4.2. Shipping costs by carrier and profitability
 
 SELECT  s.company_name,
 		SUM(o.freight) AS total_shipping_cost,
@@ -187,7 +187,8 @@ SELECT  s.company_name,
 	GROUP BY s.company_name
 
 
---ÜRÜN BAŞI EN UYGUN SHİPİNG FİRMASI	
+4.3. The most suitable shipping company per product
+	
 SELECT 
     shippers.company_name, 
     AVG(orders.freight) AS shipping_cost_per_item
@@ -202,7 +203,8 @@ ORDER BY
 
 
 
---ülkeler göre quantity sayıları
+
+4.4. Quantity numbers by country
 
 SELECT 
     customers.country, 
@@ -219,7 +221,7 @@ ORDER BY
     TotalQuantitySold DESC
 LIMIT 10
 
--- En hızı shiping olan ülkeler
+4.5. Fastest Shipping
 
 SELECT  c.country,
 		AVG((o.shipped_date - o.order_date)) AS avg_shipping_time
@@ -232,7 +234,7 @@ SELECT  c.country,
 	LIMIT 10
 
 	
--- RFM analizi(ilk sipariş üzerinden 500 gün geçmiş gibi hesaplama yaptım
+5. RFM Analysis
 
 
 WITH rfm AS(
