@@ -6,3 +6,6 @@
 # Northwind Database
 
   The Northwind database is a sample trading database that includes sales, order, and supply processes. It contains tables related to various business units such as products, customers, suppliers, orders, and employees. Used to model a company's operations, this database is ideal for practicing SQL queries and data analysis.
+
+## 1.	Sales Analysis
+## 1.1.	Total number of orders
