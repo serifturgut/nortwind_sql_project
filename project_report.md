@@ -1,5 +1,6 @@
                                                            
 # Northwind 
+![northwind-footer-logo](https://github.com/user-attachments/assets/4f3af3a5-4aff-49ca-b4d1-5e7ef51a55f7)
 
   Northwind is an international trading company operating in the food and beverage sector. The company sources a variety of products from suppliers worldwide and sells them to retailers and restaurants. Aiming to provide high-quality service and a wide range of products, Northwind efficiently manages customer orders, product inventory, and supplier relationships.
 
@@ -62,13 +63,15 @@ In this analysis, the average delivery time was calculated by subtracting shippe
 ### 4.3.The Most Suitable Shipping Company per Product 
 ![4 3](https://github.com/user-attachments/assets/6e1ff884-4ca0-465b-8bf6-cabe78657b8c)
 
+Looking at the results of the above tables, the most commonly used shipping company is the most expensive, while the least used one offers the most affordable rates per product. By prioritizing the second company, we can increase profitability.
+
 ### 4.4.Quantity Numbers by Country
 ![4 4](https://github.com/user-attachments/assets/5b2ad48c-d490-411f-817b-85323adb035d)
 
 ### 4.5.Fastest Shipping
 ![4 5](https://github.com/user-attachments/assets/45403f93-f5cb-4b19-bc48-a936714b1715)
 
-Looking at the results of the above tables, the most commonly used shipping company is the most expensive, while the least used one offers the most affordable rates per product. By prioritizing the second company, we can increase profitability.
+
 
 
 
