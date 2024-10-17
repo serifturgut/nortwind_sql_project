@@ -13,4 +13,5 @@ Total number of this case 830
 
 ## 1.2. Top 5 best selling products
 ![1 2](https://github.com/user-attachments/assets/812a0200-41c0-499e-8606-0619073ffe23)
+
 First, I joined the products table and the order_details table using the product_id column. In the new table, I selected the product_name from the products table and the total quantity from the order_details table. This way, I identified the top 5 best-selling products.
