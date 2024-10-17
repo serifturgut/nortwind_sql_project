@@ -15,3 +15,10 @@ Total number of this case 830
 ![1 2](https://github.com/user-attachments/assets/812a0200-41c0-499e-8606-0619073ffe23)
 
 First, I joined the products table and the order_details table using the product_id column. In the new table, I selected the product_name from the products table and the total quantity from the order_details table. This way, I identified the top 5 best-selling products.
+
+## 1.3.Total Number of Orders by Month
+![1 3](https://github.com/user-attachments/assets/767fec67-6e52-4786-abd4-c4b19c0fcaea)
+
+The orders and order_details tables were joined using the order_id column. In the newly created table, the year and months were extracted, and the total number of sales was calculated. It is important to note that only data for all months of 1997 is available. For 1996, only the 7th and 12th months have data, and for 1998, data is available only for the months between January and May.
+
+
