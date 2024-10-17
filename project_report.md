@@ -1,7 +1,4 @@
-                                                              Northwind Analysis
-                                                                      By
-                                                              Serif Can Turgut
-
+                                                           
 Northwind 
 
   Northwind is an international trading company operating in the food and beverage sector. The company sources a variety of products from suppliers worldwide and sells them to retailers and restaurants. Aiming to provide high-quality service and a wide range of products, Northwind efficiently manages customer orders, product inventory, and supplier relationships.
